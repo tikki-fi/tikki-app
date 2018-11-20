@@ -1,0 +1,44 @@
+<ion-modal-view>
+    <ion-header-bar class="bar-dark" align-title="center">
+      <h1 class="title">Tapahtumatiedot</h1>
+    </ion-header-bar>
+    <ion-content>
+        <div class="list card">
+            
+              <div class="item item-avatar">
+                <img src="img/resul.png">
+                <h2><b>{{event.name}}</b></h2>
+                <p>{{event.js_date.getDay()}}.{{event.js_date.getMonth()+1}}.{{event.js_date.getFullYear()}} - {{event.js_date.getHours()}}:{{event.js_date.getMinutes()}}</p>
+              </div>
+              <div class="item item-divider">
+                Suoritukset
+              </div>
+              <div class="item">
+                  <p class="icon-left" ng-repeat="item in event.payload.tests"><i class="icon ion-checkmark"></i> {{item.name}}</p>
+              </div>
+              <div class="item item-divider">Kuvaus</div>
+              <div class="item item-body">
+                <p>
+                  {{event.description}}
+                </p>
+                <br/>
+                <p>
+                  <item class="button button-full button-positive" ng-if="!isOwner&&!userAttendedEvent(event)" ng-click="attendEvent(event);closeModal();">Ilmoittaudu tapahtumaan</item>
+                  <h2 ng-if="userAttendedEvent(event)" style="font-weight: 600">Olet ilmoittautunut tähän tapahtumaan.</h2>
+                  <item class="button button-full button-assertive" ng-if="isOwner" ng-click="deleteEvent(event);closeModal();">Poista tapahtuma</item>
+                </p>
+                <p>
+                    <a href="#" class="subdued">{{event.participants.length}} ilmoittaunutta</a>
+                </p>
+              </div>
+              <div class="item item-divider" ng-if="isOwner&&event.participants.length">Osallistujat</div>
+                <item ng-repeat="participant in event.participants" ng-if="isOwner">{{participant}}</item>
+            
+            </div>
+    </ion-content>
+	<div class="bar bar-footer bar-positive footer-button">
+        <a class="button button-full button-clear" ng-click="closeModal()">
+            Takaisin
+        </a>
+    </div>
+</ion-modal-view>

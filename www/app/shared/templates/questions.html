@@ -1,0 +1,50 @@
+<ion-modal-view>
+
+  <ion-header-bar class="bar-dark" align-title="center">
+
+      <ion-buttons left>
+          <button class="button button-stable" ng-click="closeQuestionModal(modaldata.question)">Poistu</button>
+      </ion-buttons>
+
+    <h1 class="title">Kysely</h1>
+
+  </ion-header-bar>
+
+  <ion-content>
+      <div class="card" ng-model="modaldata">
+
+          <div class="item item-text-wrap" ng-show="modaldata.question.schema.single">
+            {{modaldata.question.schema.single.question}}
+          </div>
+
+          <div class="item item-text-wrap" ng-show="modaldata.question.schema.question">
+            {{modaldata.question.schema.question}}
+          </div>
+
+          <div class="item">
+              <span ng-show="modaldata.finished">Kiitos vastauksistasi!</span>
+              <div
+              ng-if="modaldata.question.schema.single"
+              ng-class="modaldata.question.answer == option ? 'button-positive' : 'button-dark'"
+              class="button button-full button-small question-button"
+              ng-repeat="(id, desc) in modaldata.question.schema.single.options"
+              ng-click="modaldata.question.answer = id">
+                {{desc}}
+              </div>
+
+              <div ng-if="modaldata.question.schema.format=='integer'">
+                <label class="item item-input question-integer-input">
+                    <input type="tel" class="center" placeholder="Vastaus" ng-model="modaldata.question.answer">
+                </label>
+          </div>
+
+
+        </div>
+        </div>
+  </ion-content>
+
+  <ion-footer-bar>
+    <button style="margin: 0px" ng-show="modaldata.question.answer" class="button button-full button-positive" ng-click="confirmAnswer(modaldata.question, modaldata.question.answer)">Lähetä</button>
+  </ion-footer-bar>
+
+</ion-modal-view>

@@ -1,0 +1,10 @@
+<p ng-if="record.type_id==1"><b>{{record.fullName}}</b>, Cooper-testi</p>
+<p ng-if="record.type_id==2"><b>{{record.fullName}}</b>, Punnerrus</p>
+<p ng-if="record.type_id==3"><b>{{record.fullName}}</b>, Vatsalihas</p>
+<p ng-if="record.type_id==4"><b>{{record.fullName}}</b>, Pituushyppy</p>
+<p ng-if="record.type_id==5"><b>{{record.fullName}}</b>, Leuanveto</p>
+<input ng-if="record.type_id==1" type="text" ng-model="record.payload.distance">
+<input ng-if="record.type_id==2" type="text" ng-model="record.payload.pushups">
+<input ng-if="record.type_id==3" type="text" ng-model="record.payload.situps">
+<input ng-if="record.type_id==4" type="text" ng-model="record.payload.standingjump">
+<input ng-if="record.type_id==5" type="text" ng-model="record.payload.pullups">

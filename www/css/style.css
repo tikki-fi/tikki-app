@@ -1,0 +1,136 @@
+/* SHARED */
+html, body {height: 100%; margin: 0px; padding: 0px;}
+
+.padding_top_10 {
+	padding-top: 10% !important;
+}
+
+.padding_top_25 {
+	padding-top: 25% !important;
+}
+
+.padding_top_50 {
+	padding-top: 50% !important;
+}
+
+.padding_top_75 {
+	padding-top: 75% !important;
+
+}
+
+.padding_top_90 {
+	padding-top: 90% !important;
+}
+
+.no_padding {
+    padding: 0px !important;
+}
+
+.no_border {
+		border: none;
+}
+.col-15 {
+	-webkit-box-flex: 0;
+    -webkit-flex: 0 0 15%;
+    -moz-box-flex: 0;
+    -moz-flex: 0 0 15%;
+    -ms-flex: 0 0 15%;
+    flex: 0 0 15%;
+    max-width: 15%;
+}
+
+.disabled_opacity {
+	opacity: 0.5
+}
+
+/* LOGIN */
+
+.container_kko {
+    display: -webkit-flex;
+    flex-direction: column;
+    -webkit-flex-direction: column;
+}
+
+.container_background_image {
+	background: url('../img/bg_solttu.jpg');
+	background-size: cover;
+	background-repeat: no-repeat;
+	height: 100%;
+	opacity: 0.7;
+	-webkit-filter: blur(2px);
+  	-moz-filter: blur(2px);
+  	-o-filter: blur(2px);
+  	-ms-filter: blur(2px);
+  	filter: blur(2px);
+}
+
+.text_loginheader {
+    flex: 4;
+    -webkit-flex: 4;
+    padding-top: 20px;
+}
+
+.content_bottom {
+	position: absolute;
+	bottom: 10%;
+	width: 100%;
+}
+
+.content-bottom .col {
+	padding: 0px !important;
+}
+
+.social_login_row {
+	font-size: 2.5em;
+}
+/* NAV */
+
+ion-popover-view.fit {
+	height: auto !important;
+}
+
+.item-logout {
+	background-color: #DAB1B1;
+}
+
+ion-popover-view .item {
+	border: none !important;
+}
+
+  
+ion-popover-view.fit ion-content {
+	position: relative !important;
+}
+  
+.platform-android ion-popover-view.fit {
+	margin-top: 5px !important;
+}
+
+/* INFO PAGE */
+
+div.footer-button a.button.button-full {
+    width:100%;
+    margin-top: 0;
+}
+
+/* PROFILE */
+.text_profile {
+	font-weight: bold !important;
+	font-size: 1.1em !important;
+}
+
+/* ACTIVITIES */
+
+
+/* EVENT */
+
+/* QUESTIONS */
+
+.question-button {
+	text-overflow: auto;
+	white-space: initial;
+}
+
+.question-integer-input {
+	border-bottom: 0px;
+}

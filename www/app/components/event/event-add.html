@@ -1,0 +1,99 @@
+<ion-view title="Tapahtuman lisäys" style="text-align: center">
+    <div class="tabs-striped tabs-top tabs-background-dark tabs-color-light">
+        <div class="tabs">
+            <a class="tab-item active" ui-sref="addevent">
+             <i class="icon ion-compose"></i>
+           </a>
+            <a class="tab-item" ui-sref="events">
+             <i class="icon ion-clipboard"></i>
+           </a>
+        </div>
+    </div>
+    <ion-content on-swipe-right="stateChange('events')">
+        <div class="list card has-header" style="text-align:start">
+
+            <div class="item item-divider padding" ng-class="validateEventBasicData(event) ? 'balanced' : 'assertive'"><b ng-if="!validateBasicEventData(event)">*&nbsp;</b>Tapahtuman tiedot</div>
+            <!-- initiator -->
+            <label class="item item-input item-select">
+                        <div class="input-label">
+                          Tilaaja
+                        </div>
+                        <select ng-model="event.organization">
+                          <option ng-repeat="organization in data.initiators">{{organization}}</option>
+                        </select>
+            </label>
+            <!-- event name -->
+            <label class="item item-input item-stacked-label">
+                    <span class="input-label" ng-class="event.name ? 'balanced' : 'assertive'"><b ng-if="!event.name">*&nbsp;</b>Nimi</span>
+                    <input type="text" ng-model="event.name" placeholder="Esim. Kuntotesti" autofocus>
+                  </label>
+            <!-- address -->      
+            <label class="item item-input item-stacked-label">
+                    <span class="input-label" ng-class="event.address ? 'balanced' : 'assertive'"><b ng-if="!event.address">*&nbsp;</b>Osoite</span>
+                    <input type="text" ng-model="event.address" placeholder="Esim. Helsinginkatu 23">
+            </label>
+            <!-- postal info -->
+            <label class="item item-input item-stacked-label">
+                        <span class="input-label" ng-class="event.postal_code.length == 5 ? 'balanced' : 'assertive'"><b ng-if="event.postal_code.length != 5">*&nbsp;</b>Postinumero</span>
+                        <input type="tel" maxlength="5" ng-model="event.postal_code" placeholder="Esim. 01350">
+            </label>
+            <!-- description -->
+            <label class="item item-input item-stacked-label">
+                    <span class="input-label">Kuvaus</span>
+                    <textarea style="resize: none" rows="5" placeholder="Vapaa kuvaus tapahtumasta" ng-model="event.description"></textarea>
+            </label>
+           
+            <!-- tests for event -->        
+            <div class="item item-divider" ng-class="event.payload.tests.length ? 'balanced' : 'assertive'"><b ng-if="!event.payload.tests.length">*&nbsp;</b>Suoritukset</div>
+            <!-- checkboxes -->
+            <ion-checkbox ng-repeat="item in data.testList" ng-click="addTestToEvent(item)">{{item.name}}</ion-checkbox>
+
+            <!-- event time -->
+            <div class="item item-divider" ng-class="validateEventTimeStamp(event) ? 'balanced' : 'assertive'"><b ng-if="!validateEventTimeStamp(event)">*&nbsp;</b>Ajankohta</div>
+            
+            <div class="item no_padding">
+                <div class="row no_padding">
+                    <div class="col no_padding">
+                            <label class="item item-input item-stacked-label">
+                                    <span class="input-label">Päivä</span>
+                                    <input type="tel" maxlength="2" placeholder="{{currentTime.getDate()}}" ng-model="event.event_at.day">
+                            </label>
+                    </div>
+                    <div class="col no_padding">
+                            <label class="item item-input item-stacked-label">
+                                    <span class="input-label">Kuukausi</span>
+                                    <input type="tel" maxlenght="2" placeholder="{{currentTime.getMonth() + 1}}" ng-model="event.event_at.month">
+                            </label>
+                    </div>
+                    <div class="col no_padding">
+                            <label class="item item-input item-stacked-label">
+                                    <span class="input-label">Vuosi</span>
+                                    <input type="tel" maxlength="4" value="{{currentTime.getFullYear()}}" ng-model="event.event_at.year">
+                            </label>
+                    </div>
+
+                </div>
+                <div class="item no_padding" style="height: 3px !important; border-bottom: 0"></div>
+                <div class="row no_padding">
+                    <div class="col col-33 no_padding">
+                            <label class="item item-input">
+                                    <span class="input-label">Kellonaika</span>
+                            </label>
+                    </div>
+                    <div class="col">
+                            <input style="display:inline;" size="4" class="no_padding" type="tel" maxlength="2" placeholder="18" ng-model="event.event_at.hour">
+                            <p style="font-weight:500;display: inline; margin-left: 0px;">:</p>
+                            <input style="display:inline;" size="4" class="no_padding" type="tel" maxlength="2" placeholder="30" ng-model="event.event_at.minute">
+                    </div>
+                </div>   
+            </div>
+            <!-- submit area -->
+            <a class="item item-icon-left" ng-disabled="disableEventAdd(event)" ng-class="disableEventAdd(event) ? 'assertive disabled_opacity' : 'balanced'" ng-click="confirmModal(event)">
+            <i class="icon ion-plus"></i>
+            Lisää tapahtuma
+            </a>
+
+        </div>
+    </ion-content>
+
+</ion-view>

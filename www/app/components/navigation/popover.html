@@ -1,0 +1,20 @@
+<ion-popover-view class="fit">
+        <ion-content>
+          <div class="list" ng-click="closePopover()">
+            <div class="item item-divider item-stable">Tapahtumat</div>
+            <a class="item item-icon-right balanced" ui-sref="addevent">Lisää tapahtuma<i class="icon ion-compose"></i></a>
+            <a class="item item-icon-right" ui-sref="events">Tapahtumat<i class="icon ion-clipboard"></i></a>
+
+            <div class="item item-divider item-stable">Käyttäjä</div>
+              <a class="item item-icon-right balanced" ui-sref="activitieslist">Lisää suoritus<i class="icon ion-plus"></i></a>
+              <a class="item item-icon-right" ui-sref="profile">Profiili<i class="icon ion-person"></i></a>
+              <a class="item item-icon-right" ui-sref="profilerecords">Ennätykset<i class="icon ion-star"></i></a>
+              <a class="item item-icon-right" ui-sref="profilestatistics">Statistiikka<i class="icon ion-pie-graph"></i></a>
+
+            <div class="item"></div>
+
+            <a class="item item-icon-right item-logout"  ng-click="logout()">Kirjaudu ulos<i class="icon ion-log-out"></i></a>
+            <a class="item item-assertive item-divider" ng-click="deleteUser()">Poista käyttäjätunnus</a>
+          </div>
+        </ion-content>
+</ion-popover-view>
