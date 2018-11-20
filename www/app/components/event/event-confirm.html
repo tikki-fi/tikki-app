@@ -1,0 +1,37 @@
+<ion-modal-view>
+    <ion-header-bar class="bar-dark" align-title="center">
+      <h1 class="title">Varmista tapahtumatiedot</h1>
+    </ion-header-bar>
+    <ion-content>
+        <div class="list card">
+            
+              <div class="item item-avatar">
+                <img src="img/resul.png">
+                <h2><b>{{event.name}}</b></h2>
+                <p>{{event.event_at.day}}.{{event.event_at.month}}.{{event.event_at.year}} - {{event.event_at.hour}}:{{event.event_at.minute}}</p>
+                <p>{{event.address}}, {{event.postal_code}}</p>
+              </div>
+              <div class="item item-divider">
+                Suoritukset
+              </div>
+              <div class="item">
+                  <p class="icon-left" ng-repeat="item in event.payload.tests"><i class="icon ion-checkmark"></i> {{item.name}}</p>
+              </div>
+              <div class="item item-divider">Kuvaus</div>
+              <div class="item item-body">
+                <p>
+                  {{event.description}}
+                </p>
+                <p>
+                  <item class="button button-full button-positive" ng-click="addOrRemoveEvent(event);closeModal()">Lisää tapahtuma</item>
+                </p>
+              </div>
+            
+            </div>
+    </ion-content>
+	<div class="bar bar-footer bar-assertive footer-button">
+        <a class="button button-full button-clear" ng-click="closeModal()">
+            Peruuta
+        </a>
+    </div>
+</ion-modal-view>

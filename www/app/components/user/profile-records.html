@@ -1,0 +1,27 @@
+<ion-view title="Ennätykset" style="text-align: center">
+   
+    <div class="tabs-striped tabs-top tabs-background-dark tabs-color-light">
+    <div class="tabs">
+      <a class="tab-item" ui-sref="profile">
+        <i class="icon ion-home"></i>
+      </a>
+      <a class="tab-item active">
+        <i class="icon ion-star"></i>
+      </a>
+      <a class="tab-item" ui-sref="profilestatistics">
+        <i class="icon ion-ios-pie"></i>
+      </a>
+    </div>
+  </div>
+  <ion-content class="has-subheader" style="">
+	  <div class="list">
+		  <div ng-repeat="(key, value) in user.maxValues">
+			  <div class="item item-divider">{{getActivityText(key)}}</div>
+			  <div class="item">
+				  <h2>{{value}} {{getActivityMeasurement(key)}}</h2>
+			  </div>
+		  </div>
+	  </div>
+  </ion-content>
+
+</ion-view>

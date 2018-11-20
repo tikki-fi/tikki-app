@@ -1,0 +1,23 @@
+<ion-modal-view>
+    <ion-header-bar class="bar-dark" align-title="center">
+      <h1 class="title">Ota yhteyttä</h1>
+    </ion-header-bar>
+    <ion-content>
+     <ion-list>
+			<div class="item item-divider">Bugi-ilmoitus tai vapaamuotoinen palaute</div>
+				<label class="item item-input">
+					<textarea id="container_feedback_text" rows="5" ng-model="feedback" placeholder=". . . "></textarea>
+				</label>
+			<div type="submit" class="button button-full button-positive" ng-disabled="!feedback.length||data.feedbackSent" ng-click="sendFeedback(feedback)">
+				<p ng-show="!data.feedbackSent">Lähetä palaute</p>
+				<p ng-show="data.feedbackSent">Kiitos palautteesta!</p>
+			</div>
+		</form>
+     </ion-list>
+    </ion-content>
+	<div class="bar bar-footer bar-positive footer-button">
+        <a class="button button-full button-clear" ng-click="closeInfoDialog()">
+            Takaisin
+        </a>
+    </div>
+</ion-modal-view>

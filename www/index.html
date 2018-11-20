@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html ng-app="kko" ng-strict-di>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
+    <title></title>
+
+    <link rel="manifest" href="manifest.json">
+
+    <!-- un-comment this code to enable service worker
+    <script>
+      if ('serviceWorker' in navigator) {
+        navigator.serviceWorker.register('service-worker.js')
+          .then(() => console.log('service worker installed'))
+          .catch(err => console.log('Error', err));
+      }
+    </script>-->
+
+    <!-- css libs -->
+    <link href="lib/ionic/css/ionic.min.css" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet">
+
+    <!-- js libs -->
+    <script src="lib/ionic/js/ionic.bundle.js"></script>
+    <script src="lib/ionic-datepicker/dist/ionic-datepicker.bundle.min.js"></script>
+    <script src="lib/chart/dist/Chart.min.js"></script>
+    <script src="lib/angular-chart/dist/angular-chart.min.js"></script>
+    <script src="lib/moment/min/moment-with-locales.min.js"></script>
+    <script src="lib/auth0/auth0.js"></script>
+    <script src="lib/auth0/angular-auth0.js"></script>
+    <script src="lib/angular-environment/dist/angular-environment.js"></script>
+
+    <!-- app js -->
+    <script src="app/main-ctrl.js"></script>
+    <script src="app/components/auth/auth-service.js"></script>
+    <script src="app/shared/shared-service.js"></script>
+    <script src="app/components/activities/activity-ctrl.js"></script>
+    <script src="app/components/activities/activity-service.js"></script>
+    <script src="app/components/event/event-ctrl.js"></script>
+    <script src="app/components/event/event-service.js"></script>
+    <script src="app/components/user/user-ctrl.js"></script>
+    <script src="app/components/user/user-service.js"></script>
+    <script src="app/components/notifications/notification-ctrl.js"></script>
+    <script src="app/components/notifications/notification-service.js"></script>
+    <script src="app/shared/modal-service.js"></script>
+    <script src="app/main-module.js"></script>
+    <script src="app/components/navigation/nav-ctrl.js"></script>
+  </head>
+  <body>
+
+	<!-- do not include service worker yet since https not available -->
+	
+    <!--<script type="text/javascript">
+    if ('serviceWorker' in navigator) {
+      window.addEventListener('load', function() {
+        navigator.serviceWorker.register('/sw.js').then(function(registration) {
+          // Registration was successful
+          console.log('ServiceWorker registration successful with scope: ', registration.scope);
+        }, function(err) {
+          // registration failed :(
+          console.log('ServiceWorker registration failed: ', err);
+        });
+      });
+    }    
+    </script> -->
+
+    <ion-nav-bar class="bar-dark" align-title="center">
+      <ion-nav-buttons side="right">
+      <!--<button ng-if="isAuthenticated&&!$state.includes('login')" class="button button-small" ng-click="logout()">
+        Kirjaudu ulos
+      </button>-->
+      <button ng-show="!$state.includes('login')" class="button-icon icon ion-navicon" style="color: #FFFFFF;" ng-controller="navCtrl as nav" ng-click="openPopover($event)">
+      </button>
+    </ion-nav-buttons>
+	<ion-nav-buttons side="left">
+		 <button class="button button-icon icon ion-compose" ng-click="openInfoDialog()">   
+      </button>
+	</ion-nav-buttons>
+        <ion-nav-back-button></ion-nav-back-button>
+    </ion-nav-bar>
+    <ion-nav-view>
+        <div class="bar bar-footer item-icon-right" ng-class="ui.currentNotification.positive ? 'bar-balanced' : 'bar-assertive'" ng-controller="notificationCtrl" ng-show="ui.currentNotification">
+          <div class="title">{{ui.currentNotification.content}}
+            <i class="icon" ng-class="ui.currentNotification.error ? 'ion-close' : 'ion-checkmark'"></i>
+          </div>
+        </div>
+    </ion-nav-view>
+
+    <script id="bar-chart.html" type="text/ng-template">
+       <div class="modal">
+         <header class="bar bar-header bar-dark">
+          <h1 class="title">Kuntojakauma</h1>
+          <div class="button button-clear" ng-click="closeBarModal()"><span class="icon ion-close"></span></div>
+        </header>
+        <div has-header="true" padding="true" style="padding-top: 25%">
+          <canvas id="base" class="chart-bar"
+            chart-data="data" chart-labels="labels" chart-colors="colors"
+            chart-dataset-override="datasetOverride" >
+          </canvas> 
+        </div>
+      </div>
+    </script>
+  </body>
+</html>
