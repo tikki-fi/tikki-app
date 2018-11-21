@@ -242,7 +242,7 @@
             method: 'GET',
             url: $rootScope.apiUrl + '/schema'
         }).success(function (data) {
-            var questions = data.result.filter(i => i.category_id == 2);
+            var questions = data.result.filter(i => (i.category_id == 2 && i.ask == 1));
             deferred.resolve(questions);
             sessionStorage.setItem('questionsLength', questions.length)
         });
