@@ -185,13 +185,9 @@
                     method: 'GET',
                     url: $rootScope.apiUrl + '/record?user_id=' + id
                 }).then(function (response) {
-                    var result = response.data.result.filter(function (item, index) {
-                        if(item.payload) {
-                            if(item.type_id == 9999) {
-                                return false;
-                            }
-                            return item.payload.category_id != 2;
-                        }
+                    var result = response.data.result.filter(function (item) {
+                        console.log(item);
+                        return item.type_id < 6;
                     });
 
                     result.forEach(function (record) {
