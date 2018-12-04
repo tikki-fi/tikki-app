@@ -54,7 +54,8 @@
       },
       vars: {
         local: {
-          apiUrl: "http://localhost:5000"
+//          apiUrl: "http://localhost:5000"
+          apiUrl: "https://dev.tikki.fi/api"
         },
         development: {
           apiUrl: "https://dev.tikki.fi/api"
