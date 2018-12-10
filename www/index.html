@@ -25,7 +25,7 @@
     <script src="lib/ionic-datepicker/dist/ionic-datepicker.bundle.min.js"></script>
     <script src="lib/chart/dist/Chart.min.js"></script>
     <script src="lib/angular-chart/dist/angular-chart.min.js"></script>
-    <script src="lib/moment/min/moment-with-locales.min.js"></script>
+    <script src="node_modules/moment/min/moment-with-locales.min.js"></script>
     <script src="lib/auth0/auth0.js"></script>
     <script src="lib/auth0/angular-auth0.js"></script>
     <script src="lib/angular-environment/dist/angular-environment.js"></script>
@@ -49,7 +49,7 @@
   <body>
 
 	<!-- do not include service worker yet since https not available -->
-	
+
     <!--<script type="text/javascript">
     if ('serviceWorker' in navigator) {
       window.addEventListener('load', function() {
@@ -61,7 +61,7 @@
           console.log('ServiceWorker registration failed: ', err);
         });
       });
-    }    
+    }
     </script> -->
 
     <ion-nav-bar class="bar-dark" align-title="center">
@@ -73,7 +73,7 @@
       </button>
     </ion-nav-buttons>
 	<ion-nav-buttons side="left">
-		 <button class="button button-icon icon ion-compose" ng-click="openInfoDialog()">   
+		 <button class="button button-icon icon ion-compose" ng-click="openInfoDialog()">
       </button>
 	</ion-nav-buttons>
         <ion-nav-back-button></ion-nav-back-button>
@@ -96,7 +96,7 @@
           <canvas id="base" class="chart-bar"
             chart-data="data" chart-labels="labels" chart-colors="colors"
             chart-dataset-override="datasetOverride" >
-          </canvas> 
+          </canvas>
         </div>
       </div>
     </script>
