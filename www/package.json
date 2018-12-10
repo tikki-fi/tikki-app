@@ -11,7 +11,9 @@
     "angular-environment": "^1.0.8",
     "auth0": "^2.14.0",
     "chart.js": "^2.7.3",
+    "countries-cities": "0.0.11",
     "ionic": "^4.5.0",
+    "ionic-angular": "^3.9.2",
     "ionic-datepicker": "^1.2.1",
     "moment": "^2.22.2"
   },
