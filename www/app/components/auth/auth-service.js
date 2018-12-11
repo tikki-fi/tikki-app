@@ -12,7 +12,6 @@
       angularAuth0.authorize();
     }
 
-    // ...
     function handleAuthentication() {
 
       var deferred = $q.defer();
