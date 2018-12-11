@@ -148,7 +148,7 @@
         }
 
 
-        $http.get('lib/countries-cities/data.json').then(function (res) {
+        $http.get('node_modules/countries-cities/data.json').then(function (res) {
             sharedService.cities = res.data.countries.Finland;
         });
 
