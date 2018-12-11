@@ -193,8 +193,7 @@
         method: 'GET',
         url: $rootScope.apiUrl + '/user?social_id=' + social_id
       }).then(function successCallback(response) {
-        if (response.status == 200) {
-
+        if (response.status === 200) {
           var userData = response.data.result[0];
           if (userData) {
             // get user activities
@@ -244,7 +243,7 @@
 
     // get single question
     userService.getQuestion = function (oldQuestion, answer) {
-      var deferred =  $q.defer();
+      var deferred = $q.defer();
 
       var questionSavedToStorage = angular.fromJson(localStorage.getItem('question'));
       if (!questionSavedToStorage) {
@@ -254,9 +253,7 @@
             // answer isnt there so lets bring out the first question
             if (!answer) {
               var question = data[0];
-            }
-            // got answer so get next q
-            else {
+            } else {
               var oldIndex;
               // get old q index from array
               data.forEach(function (item, index) {
@@ -283,7 +280,7 @@
       return deferred.promise;
     };
 
-    function errorCallback(response) { // TODO_DEBUG, is response supposed to be used?
+    function errorCallback(response) { // TODO-DEBUG, is response supposed to be used?
       $ionicLoading.hide();
       // A confirm dialog
       var confirmPopup = $ionicPopup.confirm({
