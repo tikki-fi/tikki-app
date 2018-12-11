@@ -63,7 +63,7 @@
       if (angular.isUndefined($rootScope.user) && $rootScope.socialProfile !== null) {
         $rootScope.user = sharedService.mapSocialProfileData();
 
-        console.log($rootScope.user); // TODO-DEBUG
+        // console.log($rootScope.user); // TODO-DEBUG is this needed?
       }
 
       $scope.searchCities = function (searchFilter) {
