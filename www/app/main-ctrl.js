@@ -1,39 +1,40 @@
 (function () {
-    'use strict';
-    angular
-        .module('main', [])
-        .controller('mainCtrl', mainCtrl);
+  angular
+    .module('main', [])
+    .controller('mainCtrl', mainCtrl);
 
 
     mainCtrl.$inject = ['$state','$location', '$scope', '$rootScope', 'ionicDatePicker', '$timeout', '$ionicHistory', 'userService','sharedService', 'authService', '$ionicModal', '$http'];
 
-    function mainCtrl($state, $location, $scope, $rootScope, ionicDatePicker, $timeout, $ionicHistory, userService, sharedService, authService, $ionicModal, $http) {
+  function mainCtrl($state, $location, $scope, $rootScope, ionicDatePicker,
+    $timeout, $ionicHistory, userService, sharedService, authService,
+      $ionicModal, $http) {
 
 
-        // check if user has userid
-        var idChecked = false;
-        var id = localStorage.getItem('id');
+    // check if user has userid
+    var idChecked = false;
+    var id = localStorage.getItem('id');
 
-        if(id && idChecked) {
-            if(authService.isAuthenticated()) {
-                $ionicHistory.nextViewOptions({
-                    disableBack: true
-                });
-                $state.go('profile');
-            }
-        };
-        idChecked = true;
+    if (id && idChecked) {
+      if (authService.isAuthenticated()) {
+        $ionicHistory.nextViewOptions({
+          disableBack: true
+        });
+        $state.go('profile');
+      }
+    };
+    idChecked = true;
 
-        $scope.authorize = function () {
-            if(authService.isAuthenticated()) {
-                $ionicHistory.nextViewOptions({
-                    disableBack: true
-                });
-                $state.go('profile');
-            } else {
-            authService.authorize();
-            }
-        }
+    $scope.authorize = function () {
+      if (authService.isAuthenticated()) {
+        $ionicHistory.nextViewOptions({
+          disableBack: true
+        });
+        $state.go('profile');
+      } else {
+        authService.authorize();
+      }
+    }
 
         var birthDatePicker = {
             callback: function (val) {  //Mandatory
