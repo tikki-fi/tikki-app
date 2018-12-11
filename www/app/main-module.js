@@ -42,7 +42,6 @@
     ChartJsProvider,
     angularAuth0Provider,
     $ionicConfigProvider,
-    $httpProvider
   ) {
     // lets setup runtime check
     envServiceProvider.config({
@@ -54,7 +53,7 @@
       },
       vars: {
         local: {
-//          apiUrl: "http://localhost:5000"
+          //          apiUrl: "http://localhost:5000"
           apiUrl: "https://dev.tikki.fi/api"
         },
         development: {
@@ -186,7 +185,7 @@
     $ionicConfigProvider.backButton.text("");
   }
 
-  // inject what we need for app start
+  // Inject what we need for app start
   appRun.$inject = [
     "envService",
     "$rootScope",
@@ -237,15 +236,13 @@
 
     $rootScope.deleteUser = function() {
       var id = localStorage.getItem("id");
-      var origin = "http://resultp.jumar.io";
       $http({
         method: "DELETE",
         url: "/user/" + id
       }).then(
         function successCallback(response) {
-          if (response.status == 200) {
+          if (response.status === 200) {
             // set userId to sessionstorage
-            console.log(response);
             localStorage.removeItem("id");
             // resolve the user data
           } else {
@@ -253,10 +250,12 @@
           }
         },
         function errorCallback(response) {
-          alert("Tapahtui virhe");
+          alert("Tapahtui virhe" + response);
         }
       );
     };
+
+
 
     // betainfo modal
     $ionicModal
