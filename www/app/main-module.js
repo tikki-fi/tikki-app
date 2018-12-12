@@ -42,7 +42,6 @@
     ChartJsProvider,
     angularAuth0Provider,
     $ionicConfigProvider,
-    $httpProvider
   ) {
     // lets setup runtime check
     envServiceProvider.config({
@@ -54,7 +53,7 @@
       },
       vars: {
         local: {
-//          apiUrl: "http://localhost:5000"
+          //          apiUrl: "http://localhost:5000"
           apiUrl: "https://dev.tikki.fi/api"
         },
         development: {
@@ -186,7 +185,7 @@
     $ionicConfigProvider.backButton.text("");
   }
 
-  // inject what we need for app start
+  // Inject what we need for app start
   appRun.$inject = [
     "envService",
     "$rootScope",
@@ -230,22 +229,20 @@
     authService.scheduleRenewal();
 
     // logout func
-    $rootScope.logout = function() {
+    $rootScope.logout = function () {
       userService.logout();
       location.reload();
     };
 
-    $rootScope.deleteUser = function() {
+    $rootScope.deleteUser = function () {
       var id = localStorage.getItem("id");
-      var origin = "http://resultp.jumar.io";
       $http({
         method: "DELETE",
         url: "/user/" + id
       }).then(
         function successCallback(response) {
-          if (response.status == 200) {
+          if (response.status === 200) {
             // set userId to sessionstorage
-            console.log(response);
             localStorage.removeItem("id");
             // resolve the user data
           } else {
@@ -253,10 +250,12 @@
           }
         },
         function errorCallback(response) {
-          alert("Tapahtui virhe");
+          alert("Tapahtui virhe" + response);
         }
       );
     };
+
+
 
     // betainfo modal
     $ionicModal
@@ -264,20 +263,21 @@
         scope: $rootScope,
         animation: "slide-in-up"
       })
-      .then(function(modal) {
+      .then(function (modal) {
         $rootScope.infoModal = modal;
       });
 
-    $rootScope.openInfoDialog = function() {
+    $rootScope.openInfoDialog = function () {
       $rootScope.infoModal.show();
     };
 
-    $rootScope.sendFeedback = function(feedback) {
-      sharedService.sendFeedback(feedback).then(function(succeed) {
+    $rootScope.sendFeedback = function (feedback) {
+      sharedService.sendFeedback(feedback).then(function (succeed) {
         if (succeed) {
-          // thank user and disabled feedback button for 5 minutes with this variable and a timeout func.
+          // thank user and disabled feedback button for 5 minutes
+          // with this variable and a timeout func.
           $rootScope.data.feedbackSent = true;
-          setTimeout(function() {
+          setTimeout(function () {
             $rootScope.data.feedbackSent = false;
           }, 2500);
         } else {
@@ -286,16 +286,16 @@
       });
     };
 
-    $rootScope.closeInfoDialog = function() {
+    $rootScope.closeInfoDialog = function () {
       $rootScope.infoModal.hide();
     };
 
-    $rootScope.stateChange = function(state) {
+    $rootScope.stateChange = function (state) {
       $state.go(state);
     };
 
     // handle callback from hosted login authenticaton page
-    authService.handleAuthentication().then(function() {
+    authService.handleAuthentication().then(function () {
       // if succesfull connection was made with social platforms
       if (authService.isAuthenticated()) {
         $rootScope.isAuthenticated = authService.isAuthenticated();
@@ -308,7 +308,7 @@
           authService.getProfile(function(err, profile) {
             userService
               .loginToTikki({ token: localStorage.getItem("id_token") })
-              .then(res => {
+              .then((res) => {
                 if (!res) {
                   userService.getNewUserId().then(function(response) {
                     // go to fill rest of the information required
@@ -322,7 +322,7 @@
                 }
               })
               .catch(err => {
-                console.log(err);
+                console.error(err);
               });
           });
         }

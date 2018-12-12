@@ -1,22 +1,22 @@
 (function () {
-    'use strict';
-    angular
-        .module('notifications')
-        .factory('notificationService', notificationService);
+  'use strict';
 
-    notificationService.$inject = ['$location', '$http', '$q', 'sharedService', '$rootScope'];
+  angular
+    .module('notifications')
+    .factory('notificationService', notificationService);
 
-    function notificationService($location, $http, $q, sharedService, $rootScope) {
+  notificationService.$inject = ['$location', '$http', '$q', 'sharedService', '$rootScope'];
 
-       notificationService.notify = function (content, positive, error = false) {
-        var notification = {
-            content: content,
-            positive: positive,
-            error: error
-        }
-        $rootScope.$broadcast('notify', notification);
-       };
+  function notificationService($location, $http, $q, sharedService, $rootScope) {
+    notificationService.notify = function (content, positive, error = false) {
+      var notification = {
+        content: content,
+        positive: positive,
+        error: error
+      };
+      $rootScope.$broadcast('notify', notification);
+    };
 
-       return notificationService;
-    }
+    return notificationService;
+  }
 })();

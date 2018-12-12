@@ -1,38 +1,38 @@
 (function () {
-    'use strict';
-    angular
-        .module('notifications', [])
-        .controller('notificationCtrl', notificationCtrl);
+  'use strict';
 
-    notificationCtrl.$inject = ['$location', '$scope', '$rootScope', 'notificationService', '$timeout'];
+  angular
+    .module('notifications', [])
+    .controller('notificationCtrl', notificationCtrl);
 
-    function notificationCtrl($location, $scope, $rootScope, service, $timeout) {
+  notificationCtrl.$inject = ['$location', '$scope', '$rootScope', 'notificationService', '$timeout'];
 
-       activate()
+  function notificationCtrl($location, $scope, $rootScope, service, $timeout) {
 
-       function activate() {
-           $scope.ui = {};      
-           $scope.$on('notify', function (event, notification) {
-            $scope.ui.currentNotification = notification;
-            $timeout(function () {
-                $scope.ui.currentNotification = null;
-            }, 2500);
-           });
-       } 
+    activate()
 
-       /*$scope.setNotification = function (notification) {
+    function activate() {
+      $scope.ui = {};
+      $scope.$on('notify', function (event, notification) {
         $scope.ui.currentNotification = notification;
         $timeout(function () {
-            $scope.ui.currentNotification = null;
-        }, 2500)
-       };
-       $scope.ui.currentNotification = {
-           positive: true,
-           content: 'Tapahtuma lisätty',
-           error: false
-       };*/ 
-        // init
-       console.log('toimii');
-       
+          $scope.ui.currentNotification = null;
+        }, 2500);
+      });
     }
+    // TODO-debug, needed part?
+
+    /* $scope.setNotification = function (notification) {
+    $scope.ui.currentNotification = notification;
+    $timeout(function () {
+        $scope.ui.currentNotification = null;
+    }, 2500)
+   };
+   $scope.ui.currentNotification = {
+       positive: true,
+       content: 'Tapahtuma lisätty',
+       error: false
+   }; */
+    // init
+  }
 })();
