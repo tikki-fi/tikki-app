@@ -1,5 +1,5 @@
 <ion-view title="Profiili">
-   
+
     <div class="tabs-striped tabs-top tabs-background-dark tabs-color-light">
     <div class="tabs">
       <a class="tab-item active">
@@ -14,13 +14,13 @@
     </div>
   </div>
  <ion-content class="has-subheader">
-	
+
 	<div class="list card" ng-if="showNotifications">
 		<ion-item class="item-icon-left" ng-if="!notifications.length" on-swipe-right="hideNotifications()">Ei ilmoituksia <i class="icon ion-chevron-right"></i></ion-item>
-    
+
     <a ng-if="notifications.length" class="item item-icon-left" on-swipe-left="previousNotification()" on-swipe-right="nextNotification()" ng-click="infoModal(notifications[ui.notificationIndex])">
-      <h2><b>{{notifications[ui.notificationIndex].name}}</b></h2> 
-      <p>{{notifications[ui.notificationIndex].js_date.getDay()}}.{{notifications[ui.notificationIndex].js_date.getMonth()}}.{{notifications[ui.notificationIndex].js_date.getFullYear()}} - {{notifications[ui.notificationIndex].js_date.getHours()}}:{{notifications[ui.notificationIndex].js_date.getMinutes()}}</p>
+      <h2><b>{{notifications[ui.notificationIndex].name}}</b></h2>
+      <p>{{notifications[ui.notificationIndex].js_date.getDate()}}.{{notifications[ui.notificationIndex].js_date.getMonth()+1}}.{{notifications[ui.notificationIndex].js_date.getFullYear()}} - {{notifications[ui.notificationIndex].js_date.getHours()}}:{{notifications[ui.notificationIndex].js_date.getMinutes()}}</p>
       <p>{{notifications[ui.notificationIndex].address}}, {{notifications[ui.notificationIndex].postal_code}}</p>
       <i class="icon ion-chevron-right"></i>
       <span class="badge badge-balanced" ng-if="notifications.length-1 > 0">+{{notifications.length-1}}</span>
@@ -32,7 +32,7 @@
         <div class="item item-avatar item-button-right">
                 <img ng-src="{{socialProfile.picture}}">
                 <h2 class="text_profile">{{user.firstName}} {{user.lastName}}</h2>
-                <p>{{user.age}}, {{user.city}}</p> 
+                <p>{{user.age}}, {{user.city}}</p>
         </div>
         <!-- user doesn't have activities'-->
         <div class="item item-body" ng-if="!user.activities.length">
@@ -46,10 +46,10 @@
                 <i class="icon ion-plus-circled"></i>
                 Lisää suoritus
         </a>
-            
+
         <a class="item item-avatar" ng-repeat="record in user.activities | limitTo: ui.activityLimitSize">
 
-            <img src="img/run.png" ng-if="record.type_id==1">    
+            <img src="img/run.png" ng-if="record.type_id==1">
             <img src="img/pushup.png" ng-if="record.type_id==2">
             <img src="img/situp.jpg" ng-if="record.type_id==3">
             <img src="img/long_jump1600.png" ng-if="record.type_id==4">
@@ -67,6 +67,6 @@
             </a>
             <div class="button button-full button-stable" ng-if="user.activities.length > ui.activityLimitSize" ng-click="changeLimit('more')"><b>Lisää tuloksia..</b></div>
             <div class="button button-full button-stable" ng-if="ui.activityLimitSize > 5" ng-click="changeLimit()"><b>Vähemmän..</b></div>
-	</div> 
+	</div>
 </ion-content>
 </ion-view>
