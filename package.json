@@ -8,7 +8,7 @@
   },
   "dependencies": {
     "angular-chart.js": "^1.1.1",
-    "gulp": "^4.0.0",
+    "gulp": "^3.9.1",
     "gulp-concat": "^2.6.1",
     "gulp-minify-css": "^1.2.4",
     "gulp-rename": "^1.4.0",
