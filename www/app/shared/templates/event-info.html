@@ -4,11 +4,12 @@
     </ion-header-bar>
     <ion-content>
         <div class="list card">
-            
+
               <div class="item item-avatar">
                 <img src="img/resul.png">
                 <h2><b>{{event.name}}</b></h2>
-                <p>{{event.js_date.getDay()}}.{{event.js_date.getMonth()+1}}.{{event.js_date.getFullYear()}} - {{event.js_date.getHours()}}:{{event.js_date.getMinutes()}}</p>
+                <p>{{event.formatted_date}}</p>
+                <p>{{event.address}}, {{event.postal_code}}</p>
               </div>
               <div class="item item-divider">
                 Suoritukset
@@ -33,7 +34,7 @@
               </div>
               <div class="item item-divider" ng-if="isOwner&&event.participants.length">Osallistujat</div>
                 <item ng-repeat="participant in event.participants" ng-if="isOwner">{{participant}}</item>
-            
+
             </div>
     </ion-content>
 	<div class="bar bar-footer bar-positive footer-button">

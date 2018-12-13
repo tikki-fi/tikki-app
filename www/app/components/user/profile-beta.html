@@ -20,7 +20,7 @@
 
     <a ng-if="notifications.length" class="item item-icon-left" on-swipe-left="previousNotification()" on-swipe-right="nextNotification()" ng-click="infoModal(notifications[ui.notificationIndex])">
       <h2><b>{{notifications[ui.notificationIndex].name}}</b></h2>
-      <p>{{notifications[ui.notificationIndex].js_date.getDate()}}.{{notifications[ui.notificationIndex].js_date.getMonth()+1}}.{{notifications[ui.notificationIndex].js_date.getFullYear()}} - {{notifications[ui.notificationIndex].js_date.getHours()}}:{{notifications[ui.notificationIndex].js_date.getMinutes()}}</p>
+      <p>{{notifications[ui.notificationIndex].formatted_date}}</p>
       <p>{{notifications[ui.notificationIndex].address}}, {{notifications[ui.notificationIndex].postal_code}}</p>
       <i class="icon ion-chevron-right"></i>
       <span class="badge badge-balanced" ng-if="notifications.length-1 > 0">+{{notifications.length-1}}</span>
