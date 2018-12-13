@@ -11,14 +11,14 @@
         </div>
         <ion-content style="text-align: left" on-swipe-left="stateChange('addevent')">
             <div class="list card has-header">
-            <div class="item item-divider" ng-show="!events.length">Ei tapahtumia</div> 
+            <div class="item item-divider" ng-show="!events.length">Ei tapahtumia</div>
             <div class="item item-divider" ng-show="ongoingEvents.length">Meneillään olevat tapahtumat</div>
                 <div ng-repeat="event in ongoingEvents">
                     <a class="item item-avatar item-icon-right" ng-click="infoModal(event)">
                         <img src="img/resul.png">
 
                         <h2><b>{{event.name}}</b></h2>
-                            <p>{{event.js_date.getDate()}}.{{event.js_date.getMonth()+1}}.{{event.js_date.getFullYear()}} - {{event.js_date.getHours()}}:{{event.js_date.getMinutes()}}</p>
+                            <p>{{event.formatted_date}}</p>
                             <p>{{event.address}}, {{event.postal_code}}</p>
 
                         <i class="icon ion-android-star balanced" ng-show="isOwnEvent(event)"></i>
@@ -36,22 +36,22 @@
                 <a class="item item-avatar item-icon-right" ng-click="infoModal(event)" ng-repeat="event in upcomingEvents">
                   <img src="img/resul.png">
                   <h2><b>{{event.name}}</b></h2>
-                  <p>{{event.js_date.getDate()}}.{{event.js_date.getMonth()+1}}.{{event.js_date.getFullYear()}} - {{event.js_date.getHours()}}:{{event.js_date.getMinutes()}}</p>
+                  <p>{{event.formatted_date}}</p>
                   <p>{{event.address}}, {{event.postal_code}}</p>
                   <i class="icon ion-android-star balanced"  ng-show="isOwnEvent(event)"></i>
                   <i class="icon ion-checkmark balanced" ng-show="userAttendedEvent(event)"></i>
                 </a>
-                
+
             <div class="item item-divider" ng-show="pastEvents.length">Menneet tapahtumat</div>
             <div ng-repeat="event in pastEvents">
                 <a class="item item-avatar item-icon-right" ng-click="infoModal(event)">
                   <img src="img/resul.png">
                   <h2><b>{{event.name}}</b></h2>
-                  <p>{{event.js_date.getDate()}}.{{event.js_date.getMonth()+1}}.{{event.js_date.getFullYear()}} - {{event.js_date.getHours()}}:{{event.js_date.getMinutes()}}</p>
+                  <p>{{event.formatted_date}}</p>
                   <p>{{event.address}}, {{event.postal_code}}</p>
                   <i class="icon ion-android-star balanced"  ng-show="isOwnEvent(event)"></i>
                   <i class="icon ion-checkmark balanced" ng-show="userAttendedEvent(event)"></i>
-                </a>  
+                </a>
                 <div class="item item-divider item-light item-icon-right" ui-sref="validate" ng-show="isOwnEvent(event)" ng-click="initValidateView(event)">
                         Validoi tuloksia
                         <i class="icon ion-forward"></i>

@@ -61,6 +61,7 @@ eventService.$inject = ['$location', '$http', '$q', 'sharedService',
         if (response.status === 200) {
           response.data.result.forEach(function (event) {
             event.js_date = new Date(event.event_at);
+            event.formatted_date = dateFormat(event.js_date, 'd.m.yyyy - HH:MM')
           });
           deferred.resolve(response.data.result);
         }

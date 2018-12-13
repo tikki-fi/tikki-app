@@ -4,11 +4,11 @@
     </ion-header-bar>
     <ion-content>
         <div class="list card">
-            
+
               <div class="item item-avatar">
                 <img src="img/resul.png">
                 <h2><b>{{event.name}}</b></h2>
-                <p>{{event.event_at.day}}.{{event.event_at.month}}.{{event.event_at.year}} - {{event.event_at.hour}}:{{event.event_at.minute}}</p>
+                <p>{{event.formatted_date}}</p>
                 <p>{{event.address}}, {{event.postal_code}}</p>
               </div>
               <div class="item item-divider">
@@ -26,7 +26,7 @@
                   <item class="button button-full button-positive" ng-click="addOrRemoveEvent(event);closeModal()">Lisää tapahtuma</item>
                 </p>
               </div>
-            
+
             </div>
     </ion-content>
 	<div class="bar bar-footer bar-assertive footer-button">
