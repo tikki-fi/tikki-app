@@ -231,7 +231,7 @@
     // logout func
     $rootScope.logout = function () {
       userService.logout();
-      location.reload();
+      $state.go("login")
     };
 
     $rootScope.deleteUser = function () {
