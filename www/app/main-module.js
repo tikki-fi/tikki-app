@@ -47,14 +47,17 @@
     envServiceProvider.config({
       domains: {
         local: ["localhost"],
+        localback: ["127.0.0.1"],
         development: ["dev.tikki.fi"],
         production: ["tikki.fi"],
         test: ["qa.tikki.fi"]
       },
       vars: {
         local: {
-          //          apiUrl: "http://localhost:5000"
           apiUrl: "https://dev.tikki.fi/api"
+        },
+        localback: {
+            apiUrl: "http://localhost:5000"
         },
         development: {
           apiUrl: "https://dev.tikki.fi/api"
@@ -166,7 +169,7 @@
     var origin = window.location.origin;
     var redirectUri;
 
-    if (envServiceProvider.environment === "local") {
+    if (envServiceProvider.environment.substr(0, 5) === "local") {
       redirectUri = origin + "/#/profile";
     } else {
       redirectUri = origin + "/app/#/profile";
