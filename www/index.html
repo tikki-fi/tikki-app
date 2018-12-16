@@ -5,12 +5,13 @@
     <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
     <title></title>
 
-    <link rel="manifest" href="manifest.json">
+    <link rel="manifest" href="assets/manifest.json">
+    <link rel='shortcut icon' href='assets/favicon.ico' type='image/x-icon' />
 
     <!-- un-comment this code to enable service worker
     <script>
       if ('serviceWorker' in navigator) {
-        navigator.serviceWorker.register('service-worker.js')
+        navigator.serviceWorker.register('services/service-worker.js')
           .then(() => console.log('service worker installed'))
           .catch(err => console.log('Error', err));
       }
@@ -34,7 +35,7 @@
 
     <!-- app js -->
     <script src="app/main-ctrl.js"></script>
-    <script src="app/components/auth/auth-service.js"></script>
+    <script src="services/auth-service.js"></script>
     <script src="app/shared/shared-service.js"></script>
     <script src="app/components/activities/activity-ctrl.js"></script>
     <script src="app/components/activities/activity-service.js"></script>
@@ -55,7 +56,7 @@
     <!--<script type="text/javascript">
     if ('serviceWorker' in navigator) {
       window.addEventListener('load', function() {
-        navigator.serviceWorker.register('/sw.js').then(function(registration) {
+        navigator.serviceWorker.register('/services/sw.js').then(function(registration) {
           // Registration was successful
           console.log('ServiceWorker registration successful with scope: ', registration.scope);
         }, function(err) {

@@ -30,7 +30,7 @@
       return deferred.promise;
     }
 
-    function renewToken() {
+    function renewToken() { // TODO: Is this really in use?
       angularAuth0.renewAuth(
         {
           audience: 'https://tikkifi.eu.auth0.com/userinfo',

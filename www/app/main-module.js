@@ -74,30 +74,30 @@
       // login
       .state("login", {
         url: "/login",
-        templateUrl: "app/pages/login.html",
+        templateUrl: "pages/login.html",
         controller: "mainCtrl"
       })
       // registration
       .state("register", {
         url: "/register",
-        templateUrl: "app/pages/register.html",
+        templateUrl: "pages/register.html",
         controller: "mainCtrl"
       })
       // user profile
       .state("profile", {
         url: "/profile",
-        templateUrl: "app/pages/profile/profile.html",
+        templateUrl: "pages/profile/profile.html",
         controller: "userCtrl",
         cache: false
       })
       .state("profilerecords", {
         url: "/profile/records",
-        templateUrl: "app/pages/profile/records.html",
+        templateUrl: "pages/profile/records.html",
         controller: "userCtrl"
       })
       .state("profilestatistics", {
         url: "/profile/statistics",
-        templateUrl: "app/pages/profile/statistics.html",
+        templateUrl: "pages/profile/statistics.html",
         controller: "userCtrl"
       })
       // activities
