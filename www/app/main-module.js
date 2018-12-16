@@ -103,12 +103,12 @@
       // activities
       .state("activitieslist", {
         url: "/activities",
-        templateUrl: "app/components/activities/activities.html",
+        templateUrl: "pages/activities/activities_list.html",
         controller: "activityCtrl"
       })
       .state("activitiesadd", {
         url: "/activity",
-        templateUrl: "app/components/activities/activity.html",
+        templateUrl: "pages/activities/add_single_activity.html",
         controller: "activityCtrl",
         cache: false
       })
