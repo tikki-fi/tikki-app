@@ -6,8 +6,8 @@
   "type": "ionic1",
   "watchPatterns": [
     "scss/**/*",
-    "www/**/*",
-    "!www/lib/**/*",
-    "!www/**/*.map"
+    "src/**/*",
+    "!src/lib/**/*",
+    "!src/**/*.map"
   ]
 }
