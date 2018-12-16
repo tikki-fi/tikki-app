@@ -49,11 +49,11 @@
 
         <a class="item item-avatar" ng-repeat="record in user.activities | limitTo: ui.activityLimitSize">
 
-            <img src="img/run.png" ng-if="record.type_id==1">
-            <img src="img/pushup.png" ng-if="record.type_id==2">
-            <img src="img/situp.jpg" ng-if="record.type_id==3">
-            <img src="img/long_jump1600.png" ng-if="record.type_id==4">
-            <img src="img/pullup.png" ng-if="record.type_id==5">
+            <img src="assets/run.png" ng-if="record.type_id==1">
+            <img src="assets/pushup.png" ng-if="record.type_id==2">
+            <img src="assets/situp.jpg" ng-if="record.type_id==3">
+            <img src="assets/long_jump1600.png" ng-if="record.type_id==4">
+            <img src="assets/pullup.png" ng-if="record.type_id==5">
 
             <h2>{{record.recordTypeText}}</h2>
 

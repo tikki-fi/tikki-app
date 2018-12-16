@@ -52,7 +52,7 @@ html, body {height: 100%; margin: 0px; padding: 0px;}
 }
 
 .container_background_image {
-	background: url('../img/bg_solttu.jpg');
+	background: url('../assets/bg_solttu.jpg');
 	background-size: cover;
 	background-repeat: no-repeat;
 	height: 100%;
@@ -97,11 +97,11 @@ ion-popover-view .item {
 	border: none !important;
 }
 
-  
+
 ion-popover-view.fit ion-content {
 	position: relative !important;
 }
-  
+
 .platform-android ion-popover-view.fit {
 	margin-top: 5px !important;
 }

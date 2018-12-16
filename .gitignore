@@ -32,3 +32,6 @@
 # Npm modules #
 ###############
 node_modules/
+
+## Macbook ##
+.DS_Store

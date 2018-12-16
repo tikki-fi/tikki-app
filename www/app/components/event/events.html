@@ -15,7 +15,7 @@
             <div class="item item-divider" ng-show="ongoingEvents.length">Meneillään olevat tapahtumat</div>
                 <div ng-repeat="event in ongoingEvents">
                     <a class="item item-avatar item-icon-right" ng-click="infoModal(event)">
-                        <img src="img/resul.png">
+                        <img src="assets/resul.png">
 
                         <h2><b>{{event.name}}</b></h2>
                             <p>{{event.formatted_date}}</p>
@@ -34,7 +34,7 @@
             <div class="item item-divider" ng-show="upcomingEvents.length">Tulevat tapahtumat</div>
 
                 <a class="item item-avatar item-icon-right" ng-click="infoModal(event)" ng-repeat="event in upcomingEvents">
-                  <img src="img/resul.png">
+                  <img src="assets/resul.png">
                   <h2><b>{{event.name}}</b></h2>
                   <p>{{event.formatted_date}}</p>
                   <p>{{event.address}}, {{event.postal_code}}</p>
@@ -45,7 +45,7 @@
             <div class="item item-divider" ng-show="pastEvents.length">Menneet tapahtumat</div>
             <div ng-repeat="event in pastEvents">
                 <a class="item item-avatar item-icon-right" ng-click="infoModal(event)">
-                  <img src="img/resul.png">
+                  <img src="assets/resul.png">
                   <h2><b>{{event.name}}</b></h2>
                   <p>{{event.formatted_date}}</p>
                   <p>{{event.address}}, {{event.postal_code}}</p>

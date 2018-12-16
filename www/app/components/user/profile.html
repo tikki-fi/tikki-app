@@ -2,28 +2,28 @@
     <ion-content class="kko-container">
         <section>
             <div class="list card">
-            
+
             <div class="item item-avatar item-button-right">
                 <img ng-src="{{socialProfile.picture}}">
                 <h2>{{user.firstName}} {{user.lastName}}</h2>
-                <p>{{user.age}}, {{user.city}}</p> 
-                
+                <p>{{user.age}}, {{user.city}}</p>
+
             </div>
             <a ng-if="false" class="item item-icon-left"  ng-click="openBarModal()" ng-if="UserDoneCooper">
                 <i class="icon ion-stats-bars"></i>
                 Cooper-kuntojakauma (demo)
             </a>
-            <div class="item item-body" ng-if="user.activities.length>0"> 
+            <div class="item item-body" ng-if="user.activities.length>0">
                 <!-- cooper -->
                 <div class="row" style="padding: 0px" ng-if="UserDoneCooper">
                     <div class="col col-66">
-                        <h2>Yleiskunto: <b>{{cooperQuantile}}%</b></h2>    
-                        <p>Yleiskuntosi on parempi kuin {{cooperQuantile}}% väestöstä.</p>              
+                        <h2>Yleiskunto: <b>{{cooperQuantile}}%</b></h2>
+                        <p>Yleiskuntosi on parempi kuin {{cooperQuantile}}% väestöstä.</p>
                     </div>
                     <div class="col col-33">
                         <canvas width="175" id="pie" class="chart chart-pie"
                         chart-data="cooperChartData" chart-labels="labelsForCharts" chart-options="options">
-                        </canvas> 
+                        </canvas>
                     </div>
                 </div>
 
@@ -32,18 +32,18 @@
                     <div class="col">
                         <h3>Nähdäksesi yleiskuntosi tee Cooper-testi!</h3>
                     </div>
-                </div>  
+                </div>
 
                 <!-- pushups -->
                 <div class="row" style="padding: 0px" ng-if="UserDonePushups">
                     <div class="col col-66">
                         <h2>Lihaskunto: <b>{{pushupQuantile}}%</b></h2>
-                        <p>Lihaskuntosi on parempi kuin {{pushupQuantile}}% väestöstä.</p>     
+                        <p>Lihaskuntosi on parempi kuin {{pushupQuantile}}% väestöstä.</p>
                     </div>
                     <div class="col col-33">
                         <canvas width="175" id="pie" class="chart chart-pie"
                         chart-data="pushupChartData" chart-labels="labelsForCharts" chart-options="options">
-                        </canvas> 
+                        </canvas>
                     </div>
                 </div>
                 <!-- user not done pushups -->
@@ -51,7 +51,7 @@
                     <div class="col">
                         <h3>Nähdäksesi lihaskuntosi tee 60 sekunnin punnerrustesti!</h3>
                     </div>
-                </div>                    
+                </div>
             </div>
 
             <!-- user doesn't have activities'-->
@@ -66,14 +66,14 @@
                 <i class="icon ion-plus-circled"></i>
                 Lisää suoritus
             </a>
-            
+
             <a class="item item-avatar" ng-repeat="record in user.activities | limitTo: activityLimitSize">
 
-            <img src="img/run.png" ng-if="record.type_id==1">    
-            <img src="img/pushup.png" ng-if="record.type_id==2">
-            <img src="img/situp.jpg" ng-if="record.type_id==3">
-            <img src="img/long_jump1600.png" ng-if="record.type_id==4">
-            <img src="img/pullup.png" ng-if="record.type_id==5">
+            <img src="assets/run.png" ng-if="record.type_id==1">
+            <img src="assets/pushup.png" ng-if="record.type_id==2">
+            <img src="assets/situp.jpg" ng-if="record.type_id==3">
+            <img src="assets/long_jump1600.png" ng-if="record.type_id==4">
+            <img src="assets/pullup.png" ng-if="record.type_id==5">
 
             <h2>{{record.recordTypeText}}</h2>
 
@@ -87,9 +87,9 @@
             </a>
             <div class="button button-full button-stable" ng-if="user.activities.length > activityLimitSize" ng-click="changeLimit('more')"><b>Lisää tuloksia..</b></div>
             <div class="button button-full button-stable" ng-if="activityLimitSize > 5" ng-click="changeLimit()"><b>Vähemmän..</b></div>
-            </div> 
+            </div>
         </section>
-       
+
     </ion-content>
 
 </ion-view>

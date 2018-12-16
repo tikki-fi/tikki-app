@@ -2,35 +2,35 @@
     <ion-content style="text-align: left" on-swipe-left="stateChange('addevent')">
         <div class="list card">
         <a class="item item-avatar item-icon-right">
-            <img src="img/resul.png">
+            <img src="assets/resul.png">
             <h2><b>{{eventToValidate.name}}</b></h2>
         </a>
-        <div class="item item-divider" ng-if="!eventRecords.length">Ei suorituksia</div> 
-        <div class="item item-divider" ng-if="eventRecords.length">Suoritukset ({{eventRecords.length}} kpl)</div> 
+        <div class="item item-divider" ng-if="!eventRecords.length">Ei suorituksia</div>
+        <div class="item item-divider" ng-if="eventRecords.length">Suoritukset ({{eventRecords.length}} kpl)</div>
         <a class="item item-avatar item-icon-right" ng-repeat="record in eventRecords" ng-click="showConfirm(record)">
-                
-            <img src="img/run.png" ng-if="record.type_id==1">    
-            <img src="img/pushup.png" ng-if="record.type_id==2">
-            <img src="img/situp.jpg" ng-if="record.type_id==3">
-            <img src="img/long_jump1600.png" ng-if="record.type_id==4">
-            <img src="img/pullup.png" ng-if="record.type_id==5">
-                
+
+            <img src="assets/run.png" ng-if="record.type_id==1">
+            <img src="assets/pushup.png" ng-if="record.type_id==2">
+            <img src="assets/situp.jpg" ng-if="record.type_id==3">
+            <img src="assets/long_jump1600.png" ng-if="record.type_id==4">
+            <img src="assets/pullup.png" ng-if="record.type_id==5">
+
             <h2 ng-if="record.type_id==1"><b>{{record.fullName}}</b><br>Cooper-testi</h2>
             <h2 ng-if="record.type_id==2"><b>{{record.fullName}}</b><br>Punnerrus</h2>
             <h2 ng-if="record.type_id==3"><b>{{record.fullName}}</b><br>Vatsalihas</h2>
             <h2 ng-if="record.type_id==4"><b>{{record.fullName}}</b><br>Pituushyppy</h2>
             <h2 ng-if="record.type_id==5"><b>{{record.fullName}}</b><br>Leuanveto</h2>
-                
+
             <p ng-if="record.type_id==1">{{record.payload.distance}}m<b class="balanced"></b></p>
             <p ng-if="record.type_id==2">{{record.payload.pushups}}kpl <b class="balanced"></b></p>
             <p ng-if="record.type_id==3">{{record.payload.situps}}kpl <b class="balanced"></b></p>
             <p ng-if="record.type_id==4">{{record.payload.standingjump}}cm <b class="balanced"></b></p>
             <p ng-if="record.type_id==5">{{record.payload.pullups}}kpl <b class="balanced"></b></p>
             <span class="badge badge-stable">{{record.formattedDate}}</span>
-            <i class="icon ion-checkmark" ng-if="record.validated_user_id"></i>    
+            <i class="icon ion-checkmark" ng-if="record.validated_user_id"></i>
         </a>
         </div>
         </div>
-   
+
     </ion-content>
 </ion-view>
