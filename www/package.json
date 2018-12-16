@@ -7,14 +7,15 @@
   },
   "dependencies": {
     "angular-auth0": "^3.0.0",
+    "angular-chart.js": "^1.0.8",
     "angular-environment": "^1.0.8",
     "auth0": "^2.14.0",
     "chart.js": "^2.7.3",
     "countries-cities": "0.0.11",
     "dateformat": "^3.0.3",
-    "ionic": "^4.5.0",
     "ionic-angular": "^3.9.2",
     "ionic-datepicker": "^1.2.1",
+    "ionic-sdk": "git+https://github.com/ionic-team/ionic-v1.git",
     "moment": "^2.22.2"
   },
   "author": "",
