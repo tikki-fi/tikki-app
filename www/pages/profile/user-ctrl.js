@@ -13,14 +13,14 @@
     // modals
     $scope.infoModal = function (event) {
       modalService
-        .init('app/shared/templates/event-info.html', $scope, event)
+        .init('shared/modals/event-info.html', $scope, event)
         .then(function (modal) {
           modal.show();
         });
     };
 
     $scope.questionModal = function (event) {
-      modalService.init('app/shared/templates/questions.html', $scope, event)
+      modalService.init('shared/modals/questions.html', $scope, event)
         .then(function (modal) {
           modal.show();
         });

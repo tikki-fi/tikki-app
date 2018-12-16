@@ -18,7 +18,7 @@ var urlsToCache = [
   '/index.html',
   '/app/main-module.js',
   '/app/main-ctrl.js',
-  '/app/shared/shared-service.js',
+  '/services/shared-service.js',
   '/pages/activities/activities_list.html',
   '/pages/activities/activity-ctrl.js',
   '/pages/activities/activity-service.js',
