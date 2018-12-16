@@ -75,7 +75,7 @@ if (rootdir) {
   var platforms = (process.env.CORDOVA_PLATFORMS ? process.env.CORDOVA_PLATFORMS.split(',') : []);
 
   for (var x = 0; x < platforms.length; x++) {
-    // open up the index.html file at the www root
+    // open up the index.html file at the src root
     try {
       var platform = platforms[x].trim().toLowerCase();
       var indexPath;
