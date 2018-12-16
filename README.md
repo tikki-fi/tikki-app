@@ -16,7 +16,7 @@ To install the dependencies run the following:
 
 ```bash
 npm install  # development dependencies
-cd www && npm install  # frontend dependencies
+cd src && npm install  # frontend dependencies
 ```
 
 To start a development environment with live reload run the following command:
