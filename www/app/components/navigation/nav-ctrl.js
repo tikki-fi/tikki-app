@@ -1,5 +1,4 @@
 (function () {
-  'use strict';
   angular
     .module('kko')
     .controller('navCtrl', navCtrl);
