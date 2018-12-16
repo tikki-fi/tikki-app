@@ -262,7 +262,7 @@
 
     // betainfo modal
     $ionicModal
-      .fromTemplateUrl("app/shared/templates/version-info.html", {
+      .fromTemplateUrl("shared/modals/feedback.html", {
         scope: $rootScope,
         animation: "slide-in-up"
       })
