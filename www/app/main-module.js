@@ -115,17 +115,17 @@
       // events
       .state("events", {
         url: "/events",
-        templateUrl: "app/components/event/events.html",
+        templateUrl: "pages/events/events.html",
         controller: "eventCtrl"
       })
       .state("addevent", {
         url: "/events/add",
-        templateUrl: "app/components/event/event-add.html",
+        templateUrl: "pages/events/add.html",
         controller: "eventCtrl"
       })
       .state("validate", {
         url: "/validate",
-        templateUrl: "app/components/event/validate.html",
+        templateUrl: "pages/events/validate.html",
         controller: "eventCtrl"
       });
 
