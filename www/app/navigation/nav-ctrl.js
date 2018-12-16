@@ -9,7 +9,7 @@
 
   function navCtrl($location, $scope, $rootScope, service, activityService,
     $ionicModal, $state, $ionicHistory, authService, sharedService, $ionicPopover) {
-    $ionicPopover.fromTemplateUrl('app/components/navigation/popover.html', {
+    $ionicPopover.fromTemplateUrl('app/navigation/popover.html', {
       scope: $scope
     }).then(function (popover) {
       $scope.popover = popover;
