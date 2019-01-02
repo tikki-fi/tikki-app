@@ -16,7 +16,7 @@
       var confirmPopup = $ionicPopup.confirm({
         scope: $scope,
         title: 'Vahvista tulos',
-        templateUrl: 'app/components/event/validatepopup.html',
+        templateUrl: 'pages/events/validatepopup.html',
       });
 
       confirmPopup.then(function (res) {
@@ -32,7 +32,7 @@
 
     $scope.infoModal = function (event) {
       modalService
-        .init('app/shared/templates/event-info.html', $scope, event)
+        .init('shared/modals/event-info.html', $scope, event)
         .then(function (modal) {
           modal.show();
         });
@@ -40,7 +40,7 @@
 
     $scope.confirmModal = function (event) {
       modalService
-        .init('app/components/event/event-confirm.html', $scope, event)
+        .init('pages/events/confirm.html', $scope, event)
         .then(function (modal) {
           modal.show();
         });
