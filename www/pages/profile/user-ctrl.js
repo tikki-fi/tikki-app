@@ -20,7 +20,7 @@
     };
 
     $scope.questionModal = function (event) {
-      modalService.init('shared/modals/questions.html', $scope, event)
+      modalService.init('shared/modals/questionnaire.html', $scope, event)
         .then(function (modal) {
           modal.show();
         });
