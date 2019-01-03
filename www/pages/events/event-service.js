@@ -10,7 +10,6 @@ eventService.$inject = ['$location', '$http', '$q', 'sharedService',
 
   function eventService($location, $http, $q, sharedService, $rootScope, authService, $state, notificationService, userService, $ionicPopup) {
 
-    var origin = 'http://resultp.jumar.io'; // TODO-DEBUG, origin never used?
     $rootScope.isAuthenticated = authService.isAuthenticated();
 
     // post event to tikki
@@ -45,7 +44,7 @@ eventService.$inject = ['$location', '$http', '$q', 'sharedService',
       }).then(function (response) {
         if (response.status === 200) {
           deferred.resolve(true);
-        };
+        }
       });
 
       return deferred.promise;
@@ -61,7 +60,7 @@ eventService.$inject = ['$location', '$http', '$q', 'sharedService',
         if (response.status === 200) {
           response.data.result.forEach(function (event) {
             event.js_date = new Date(event.event_at);
-            event.formatted_date = dateFormat(event.js_date, 'd.m.yyyy - HH:MM')
+            event.formatted_date = dateFormat(event.js_date, 'd.m.yyyy - HH:MM');
           });
           deferred.resolve(response.data.result);
         }
@@ -125,16 +124,16 @@ eventService.$inject = ['$location', '$http', '$q', 'sharedService',
         if (response.status === 200) {
           notificationService.notify('Ilmoittauduttu tapahtumaan', true);
           deferred.resolve(true);
-        };
+        }
       });
       return deferred.promise;
     };
 
     // validate basic info
     eventService.validateEventBasicData = function (event) {
-      return (event.name && event.address && (!angular.isUndefined(
-        event.postal_code
-      ) && event.postal_code.length === 5));
+      return (event.name && event.address &&
+          !angular.isUndefined(event.postal_code) &&
+          event.postal_code.length === 5);
     };
 
 
@@ -143,19 +142,19 @@ eventService.$inject = ['$location', '$http', '$q', 'sharedService',
       if (!angular.isUndefined(event) && !angular.isUndefined(event.event_at)) {
         var timestamp = event.event_at;
         if (Object.keys(timestamp).length === 5) {
-          return (timestamp.day.length >= 1 && timestamp.month.length >= 1
-            && timestamp.year.length === 4 && timestamp.hour.length === 2
-            && timestamp.minute.length === 2);
-        };
-      };
+          return (timestamp.day.length >= 1 && timestamp.month.length >= 1 &&
+            timestamp.year.length === 4 && timestamp.hour.length === 2 &&
+            timestamp.minute.length === 2);
+        }
+      }
       return false;
     };
 
     // call all validators
     eventService.validateEvent = function (event) {
-      return (eventService.validateEventBasicData(event)
-        && (!angular.isUndefined(event.payload))
-        && eventService.validateEventTimeStamp(event));
+      return (eventService.validateEventBasicData(event) &&
+          (!angular.isUndefined(event.payload)) &&
+          eventService.validateEventTimeStamp(event));
     };
 
 
@@ -186,24 +185,13 @@ eventService.$inject = ['$location', '$http', '$q', 'sharedService',
       for (var prop in event_at) {
         if (event_at.hasOwnProperty(prop)) {
             event_at[prop] = parseInt(event_at[prop]);
-            };
+            }
         }
       var dateObj = new Date(event_at.year, event_at.month - 1,
         event_at.day, event_at.hour, event_at.minute, 0, 0);
       var momentObj = moment(dateObj).format();
       return momentObj;
-    };
-
-    // redundant guid generator TODO-DEBUG, use?
-    function guid() {
-      function s4() {
-        return Math.floor((1 + Math.random()) * 0x10000)
-          .toString(16)
-          .substring(1);
-      }
-      return s4() + s4() + '-' + s4() + '-' + s4() + '-' +
-            s4() + '-' + s4() + s4() + s4();
-    };
+    }
 
     return eventService;
   }
