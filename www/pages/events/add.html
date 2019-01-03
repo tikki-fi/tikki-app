@@ -27,7 +27,7 @@
                     <span class="input-label" ng-class="event.name ? 'balanced' : 'assertive'"><b ng-if="!event.name">*&nbsp;</b>Nimi</span>
                     <input type="text" ng-model="event.name" placeholder="Esim. Kuntotesti" autofocus>
                   </label>
-            <!-- address -->      
+            <!-- address -->
             <label class="item item-input item-stacked-label">
                     <span class="input-label" ng-class="event.address ? 'balanced' : 'assertive'"><b ng-if="!event.address">*&nbsp;</b>Osoite</span>
                     <input type="text" ng-model="event.address" placeholder="Esim. Helsinginkatu 23">
@@ -42,15 +42,15 @@
                     <span class="input-label">Kuvaus</span>
                     <textarea style="resize: none" rows="5" placeholder="Vapaa kuvaus tapahtumasta" ng-model="event.description"></textarea>
             </label>
-           
-            <!-- tests for event -->        
+
+            <!-- tests for event -->
             <div class="item item-divider" ng-class="event.payload.tests.length ? 'balanced' : 'assertive'"><b ng-if="!event.payload.tests.length">*&nbsp;</b>Suoritukset</div>
             <!-- checkboxes -->
             <ion-checkbox ng-repeat="item in data.testList" ng-click="addTestToEvent(item)">{{item.name}}</ion-checkbox>
 
             <!-- event time -->
             <div class="item item-divider" ng-class="validateEventTimeStamp(event) ? 'balanced' : 'assertive'"><b ng-if="!validateEventTimeStamp(event)">*&nbsp;</b>Ajankohta</div>
-            
+
             <div class="item no_padding">
                 <div class="row no_padding">
                     <div class="col no_padding">
@@ -85,10 +85,10 @@
                             <p style="font-weight:500;display: inline; margin-left: 0px;">:</p>
                             <input style="display:inline;" size="4" class="no_padding" type="tel" maxlength="2" placeholder="30" ng-model="event.event_at.minute">
                     </div>
-                </div>   
+                </div>
             </div>
             <!-- submit area -->
-            <a class="item item-icon-left" ng-disabled="disableEventAdd(event)" ng-class="disableEventAdd(event) ? 'assertive disabled_opacity' : 'balanced'" ng-click="confirmModal(event)">
+            <a class="item item-icon-left" ng-disabled="disableEventAdd(event)" ng-class="disableEventAdd(event) ? 'balanced' : 'assertive'" ng-click="confirmModal(event)">
             <i class="icon ion-plus"></i>
             Lisää tapahtuma
             </a>

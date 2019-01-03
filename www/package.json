@@ -19,5 +19,8 @@
     "moment": "^2.22.2"
   },
   "author": "",
-  "license": "ISC"
+  "license": "ISC",
+  "jshintConfig" : {
+    "esversion" : "6"
+  }
 }
