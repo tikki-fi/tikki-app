@@ -41,7 +41,7 @@
     ionicDatePickerProvider,
     ChartJsProvider,
     angularAuth0Provider,
-    $ionicConfigProvider,
+    $ionicConfigProvider
   ) {
     // lets setup runtime check
     envServiceProvider.config({
@@ -234,7 +234,7 @@
     // logout func
     $rootScope.logout = function () {
       userService.logout();
-      $state.go("login")
+      $state.go("login");
     };
 
     $rootScope.deleteUser = function () {
@@ -339,4 +339,4 @@
       }
     });
   }
-})()
+})();
