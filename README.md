@@ -15,8 +15,7 @@ npm install -g ionic
 To install the dependencies run the following:
 
 ```bash
-npm install  # development dependencies
-cd src && npm install  # frontend dependencies
+npm install
 ```
 
 To start a development environment with live reload run the following command:
