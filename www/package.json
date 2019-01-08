@@ -16,11 +16,11 @@
     "ionic-angular": "^3.9.2",
     "ionic-datepicker": "^1.2.1",
     "ionic-sdk": "git+https://github.com/ionic-team/ionic-v1.git",
-    "moment": "^2.22.2"
+    "moment": "^2.23.0"
   },
   "author": "",
   "license": "ISC",
-  "jshintConfig" : {
-    "esversion" : "6"
+  "jshintConfig": {
+    "esversion": 6
   }
 }
