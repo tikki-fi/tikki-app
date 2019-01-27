@@ -15,7 +15,7 @@
     "dateformat": "^3.0.3",
     "ionic-angular": "^3.9.2",
     "ionic-datepicker": "^1.2.1",
-    "ionic-sdk": "git+https://github.com/ionic-team/ionic-v1.git",
+    "ionic-sdk": "1.3.2",
     "moment": "^2.23.0"
   },
   "author": "",
