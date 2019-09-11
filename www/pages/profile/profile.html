@@ -54,6 +54,7 @@
             <img src="assets/situp.jpg" ng-if="record.type_id==3">
             <img src="assets/long_jump1600.png" ng-if="record.type_id==4">
             <img src="assets/pullup.png" ng-if="record.type_id==5">
+            <img src="assets/resul.png" ng-if="record.type_id==17">
 
             <h2>{{record.recordTypeText}}</h2>
 
@@ -62,6 +63,7 @@
             <p ng-if="record.type_id==3">{{record.payload.situps}}kpl <b class="balanced"></b></p>
             <p ng-if="record.type_id==4">{{record.payload.standingjump}}cm <b class="balanced"></b></p>
             <p ng-if="record.type_id==5">{{record.payload.pullups}}kpl <b class="balanced"></b></p>
+            <p ng-if="record.type_id==17">{{record.payload.shots}}kpl <b class="balanced"></b></p>
             <span class="badge badge-stable">{{record.formattedDate}}</span>
 
             </a>

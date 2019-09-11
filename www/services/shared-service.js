@@ -51,6 +51,9 @@
       if (typeId === 5) {
         return 'Leuanveto';
       }
+      if (typeId === 17) {
+        return 'Ammunta';
+      }
     };
 
     sharedService.getActivityText = function (text) {
@@ -68,6 +71,9 @@
       }
       if (text === 'pullups') {
         return 'Leuanveto';
+      }
+      if (text === 'shots') {
+        return 'Ammunta';
       }
     };
 

@@ -62,6 +62,7 @@
       console.log($rootScope.user); // TODO-DEBUG
       service.addRecord(userId, typeId, record, $scope.uistatus.event.id).then(function () {
         service.getUserActivities($rootScope.user.id).then(function (activities) {
+          console.log(activities);
           $rootScope.user.activities = activities;
           $ionicHistory.nextViewOptions({
             disableBack: true

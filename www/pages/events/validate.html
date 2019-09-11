@@ -14,18 +14,21 @@
             <img src="assets/situp.jpg" ng-if="record.type_id==3">
             <img src="assets/long_jump1600.png" ng-if="record.type_id==4">
             <img src="assets/pullup.png" ng-if="record.type_id==5">
+            <img src="assets/resul.png" ng-if="record.type_id==17">
 
             <h2 ng-if="record.type_id==1"><b>{{record.fullName}}</b><br>Cooper-testi</h2>
             <h2 ng-if="record.type_id==2"><b>{{record.fullName}}</b><br>Punnerrus</h2>
             <h2 ng-if="record.type_id==3"><b>{{record.fullName}}</b><br>Vatsalihas</h2>
             <h2 ng-if="record.type_id==4"><b>{{record.fullName}}</b><br>Pituushyppy</h2>
             <h2 ng-if="record.type_id==5"><b>{{record.fullName}}</b><br>Leuanveto</h2>
+            <h2 ng-if="record.type_id==17"><b>{{record.fullName}}</b><br>Ammunta</h2>
 
             <p ng-if="record.type_id==1">{{record.payload.distance}}m<b class="balanced"></b></p>
             <p ng-if="record.type_id==2">{{record.payload.pushups}}kpl <b class="balanced"></b></p>
             <p ng-if="record.type_id==3">{{record.payload.situps}}kpl <b class="balanced"></b></p>
             <p ng-if="record.type_id==4">{{record.payload.standingjump}}cm <b class="balanced"></b></p>
             <p ng-if="record.type_id==5">{{record.payload.pullups}}kpl <b class="balanced"></b></p>
+            <p ng-if="record.type_id==17">{{record.payload.shots}}kpl <b class="balanced"></b></p>
             <span class="badge badge-stable">{{record.formattedDate}}</span>
             <i class="icon ion-checkmark" ng-if="record.validated_user_id"></i>
         </a>

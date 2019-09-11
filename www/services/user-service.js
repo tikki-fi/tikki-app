@@ -147,6 +147,7 @@
 
               $rootScope.user = userData.payload;
               $rootScope.user.activities = sharedService.sortByDate(userData.activities);
+              console.log(userData.activities);
               $rootScope.user.id = userData.id;
               $rootScope.user.age = sharedService.calculateAge(userData.payload.birthDate);
               $rootScope.user.maxValues = sharedService.getMaxValues(userData.activities);
@@ -168,6 +169,9 @@
                 }
                 if (activity.type_id === 5) {
                   $rootScope.UserDonePullUps = true;
+                }
+                if (activity.type_id === 17) {
+                  $rootScope.UserDoneShots = true;
                 }
               });
 

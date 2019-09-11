@@ -1,4 +1,4 @@
-<ion-view title="Tapahtuman lisäys" style="text-align: center">
+<ion-view title="Ampumatapahtuman lisäys" style="text-align: center">
     <div class="tabs-striped tabs-top tabs-background-dark tabs-color-light">
         <div class="tabs">
             <a class="tab-item active" ui-sref="addevent">
@@ -25,7 +25,7 @@
             <!-- event name -->
             <label class="item item-input item-stacked-label">
                     <span class="input-label" ng-class="event.name ? 'balanced' : 'assertive'"><b ng-if="!event.name">*&nbsp;</b>Nimi</span>
-                    <input type="text" ng-model="event.name" placeholder="Esim. Kuntotesti" autofocus>
+                    <input type="text" ng-model="event.name" placeholder="Pistooliammunta" autofocus>
                   </label>
             <!-- address -->
             <label class="item item-input item-stacked-label">
@@ -44,9 +44,14 @@
             </label>
 
             <!-- tests for event -->
-            <div class="item item-divider" ng-class="event.payload.tests.length ? 'balanced' : 'assertive'"><b ng-if="!event.payload.tests.length">*&nbsp;</b>Suoritukset</div>
+            <div class="item item-divider" ng-class="event.payload.tests.length ? 'balanced' : 'assertive'"><b ng-if="!event.payload.tests.length">*&nbsp;</b>Kaliiperi</div>
             <!-- checkboxes -->
-            <ion-checkbox ng-repeat="item in data.testList" ng-click="addTestToEvent(item)">{{item.name}}</ion-checkbox>
+            <ion-checkbox ng-repeat="item in [{name: '7.62'}, {name: '9mm'}]" ng-click="addTestToEvent(item)">{{item.name}}</ion-checkbox>
+
+            <!-- tests for event -->
+            <div class="item item-divider" ng-class="event.payload.tests.length ? 'balanced' : 'assertive'"><b ng-if="!event.payload.tests.length">*&nbsp;</b>Valvottu</div>
+            <!-- checkboxes -->
+            <ion-radio ng-repeat="item in [{name: 'Kyllä'}, {name: 'Ei'}]" ng-click="addTestToEvent(item)">{{item.name}}</ion-radio>
 
             <!-- event time -->
             <div class="item item-divider" ng-class="validateEventTimeStamp(event) ? 'balanced' : 'assertive'"><b ng-if="!validateEventTimeStamp(event)">*&nbsp;</b>Ajankohta</div>

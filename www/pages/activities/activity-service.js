@@ -45,8 +45,12 @@
         data.payload = { "pullups": record };
       }
 
-      if (typeId > 5) {
+      if (typeId > 5 && typeId < 17) {
         data.payload = { "answer": record };
+      }
+
+      if (typeId === 17) {
+        data.payload = { "shots": record };
       }
 
       $http({
@@ -55,7 +59,7 @@
         data: data
       }).then(function (response) {
         if (response.status === 200) {
-          if (typeId <= 5) {
+          if (typeId <= 5 || typeId === 17) {
             sessionStorage.removeItem('pickedTest');
           }
           deferred.resolve(response);
@@ -102,6 +106,9 @@
           },
           {
             typeId: 5, name: "Leuanveto", measurement: "Toistoja", description: "Tee niin monta leuanvetoa kuin pystyt."
+          },
+          {
+            typeId: 17, name: "Ammunta", measurement: "kpl", description: "Kuinka monta laukausta ammuttiin."
           }
         ]
       };
@@ -189,7 +196,7 @@
         url: $rootScope.apiUrl + '/record?user_id=' + id
       }).then(function (response) {
         var result = response.data.result.filter(function (item) {
-          return item.type_id < 6;
+          return item.type_id < 6 || item.type_id === 17;
         });
 
         result.forEach(function (record) {
