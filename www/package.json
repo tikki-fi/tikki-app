@@ -9,7 +9,7 @@
     "angular-auth0": "^3.0.0",
     "angular-chart.js": "^1.0.8",
     "angular-environment": "^1.0.8",
-    "auth0": "^2.14.0",
+    "auth0": "^2.27.1",
     "chart.js": "^2.7.3",
     "countries-cities": "0.0.11",
     "dateformat": "^3.0.3",
